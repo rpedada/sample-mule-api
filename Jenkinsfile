@@ -11,7 +11,7 @@ stages{
 	}
 	}
 	
-	stage{"Test") {
+	stage("Test") {
 	steps {
 		echo "testing application"
 	}
