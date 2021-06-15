@@ -18,10 +18,15 @@ stages{
 	
 }
 	
-	stage ("Deploy") {
-	steps {
-		echo "Deploy application successfully"
-		}
+	stage ("Deploy to Development") {
+	when {
+                branch 'dev'
+         }
+		 
+	 steps {
+            bat 'mvn -U -V -e -B -DskipTests deploy -DmuleDeploy -Dmule.version="4.3.0" -Danypoint.username="rpedada_june21" -Danypoint.password="Rpedada@1" -Dcloudhub.app="sample-mule-api-d" -Dcloudhub.environment="Sandbox" -Dcloudhub.bg="wipro" -Dcloudhub.worker="1"'
+      }
+    }
 		
 	}
 	}
